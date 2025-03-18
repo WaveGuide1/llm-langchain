@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
+import document_loader
 
 load_dotenv()
 
@@ -24,7 +25,7 @@ prompt_template = ChatPromptTemplate.from_messages(
     [("system", system_template), ("user", "{text}")]
 )
 
-prompt = prompt_template.invoke({"language": "Igbo", "text": "When are you coming"})
+prompt = prompt_template.invoke({"language": "Igbo", "text": {document_loader.text_file()}})
 
 response = model.invoke(prompt)
 print(response.content)
