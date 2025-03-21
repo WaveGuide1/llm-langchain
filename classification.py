@@ -28,7 +28,7 @@ Passage:
 class WordClassification(BaseModel):
     sentiment: str = Field(description="Explain how the two words relates, explain in one line")
     score: int = Field(
-        description="How closely is the meaning of the two words"
+        description="How closely is the meaning of the two words."
     )
     language: str = Field(description="The language the text is written in")
 
@@ -75,5 +75,7 @@ def score_words(first_word: str, second_words: str):
 
 
 if __name__ == "__main__":
-    score = score_words("How is everything", "How are you doing")
+    inp1 = "Estoy muy enojado con vos! Te voy a dar tu merecido!"
+    inp2 = "Estoy increiblemente contento de haberte conocido! Creo que seremos muy buenos amigos!"
+    score = score_words(inp1, inp2)
     print(score)
