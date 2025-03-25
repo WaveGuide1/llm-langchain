@@ -46,7 +46,7 @@ def score_words(first_word: str, second_words: str):
         structured_model = llm.with_structured_output(WordClassification)
 
         prompt_content = """
-        Analyze the first word or text and second word or text to identify whether they have similar meaning
+        Analyze the first word or text and second word or text to identify whether they have similar meaning.
 
         first words: {first_word}
 
